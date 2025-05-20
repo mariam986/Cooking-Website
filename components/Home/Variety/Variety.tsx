@@ -2,39 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-
-interface recipe {
-  id: number;
-  title: string;
-  image: string;
-  readyInMinutes: string;
-  servings: string;
-  summary: string;
-  dishTypes: string;
-  diets: string[];
-  spoonacularSourceUrl: string;
-  extendedIngredients: Ingredients[];
-  analyzedInstructions: InstructionBlock[];
-}
-interface InstructionStep {
-  number: number;
-  step: string;
-  ingredients: any[];
-  equipment: any[];
-}
-
-interface InstructionBlock {
-  name: string;
-  steps: InstructionStep[];
-}
-
-interface Ingredients {
-  id: number;
-  amount: number;
-  unit: string;
-  original: string;
-  image: string;
-}
+import { recipe } from "@/types/types";
 
 const categories = [
   { label: "All", tag: "" },

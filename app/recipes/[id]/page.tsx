@@ -1,7 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+import { InstructionStep } from "@/types/types";
+import { Ingredients } from "@/types/types";
 
 import { MdRoomService, MdTimer } from "react-icons/md";
+
+interface SimilarRecipe {
+  id: number;
+  title: string;
+  imageType: string;
+  readyInMinutes: number;
+  servings: number;
+}
 
 interface RecipeProps {
   params: { id: string };
@@ -18,7 +28,7 @@ const RecipePage = async ({ params }: RecipeProps) => {
   const similarRes = await fetch(
     `https://api.spoonacular.com/recipes/${id}/similar?number=2&apiKey=${apiKey}`
   );
-  const similar = await similarRes.json();
+  const similar: SimilarRecipe[] = await similarRes.json();
 
   return (
     <div className="w-full bg-[#F0EBE1] pt-40 pb-20">
@@ -71,7 +81,7 @@ const RecipePage = async ({ params }: RecipeProps) => {
             INGREDIENTS
           </h1>
           <ul className="mt-4">
-            {recipe.extendedIngredients.map((ing: any) => (
+            {recipe.extendedIngredients.map((ing: Ingredients) => (
               <li
                 className="list-disc ml-4 font-normal text-[16px] md:text-[18px] lg:text-[19px] xl:text-[21px]"
                 key={ing.id}
@@ -87,9 +97,11 @@ const RecipePage = async ({ params }: RecipeProps) => {
           </h1>
           {recipe.analyzedInstructions.length > 0 ? (
             <ol className="list-decimal ml-6 space-y-2">
-              {recipe.analyzedInstructions[0].steps.map((step: any) => (
-                <li key={step.number}>{step.step}</li>
-              ))}
+              {recipe.analyzedInstructions[0].steps.map(
+                (step: InstructionStep) => (
+                  <li key={step.number}>{step.step}</li>
+                )
+              )}
             </ol>
           ) : (
             <p>No instructions available.</p>
