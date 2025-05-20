@@ -117,7 +117,7 @@ const RecipePage = async ({ params }: RecipeProps) => {
             className="grid grid-cols-1  lg:grid-cols-2 gap-[2rem]   w-full   [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden  py-4"
             id="container"
           >
-            {similar.map((each: any) => {
+            {similar.map((each) => {
               return (
                 <div
                   key={each.id}
