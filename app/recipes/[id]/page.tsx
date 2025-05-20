@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { InstructionStep } from "@/types/types";
 import { Ingredients } from "@/types/types";
+import { PageProps } from "@/types/types";
 
 import { MdRoomService, MdTimer } from "react-icons/md";
 
@@ -13,11 +14,7 @@ interface SimilarRecipe {
   servings: number;
 }
 
-interface RecipeProps {
-  params: { id: string };
-}
-
-const RecipePage = async ({ params }: RecipeProps) => {
+const RecipePage = async ({ params }: PageProps) => {
   const id = params.id;
   const apiKey = "e1ed5835f345409480356553738a99df";
   const response = await fetch(

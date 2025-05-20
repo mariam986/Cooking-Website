@@ -30,4 +30,8 @@ export interface recipe {
     original: string;
     image: string;
   }
+  export type PageProps = {
+    params: { [key: string]: string };
+    searchParams?: { [key: string]: string | string[] | undefined };
+  };
   
