@@ -14,7 +14,7 @@ const Hero = () => {
           </div>
           <div className="w-[100%] lg:w-[48%] space-y-10 flex flex-col">
             <p className="font-normal text-[18px] md:text-[19px] lg:text-[20px] xl:text-[21px] text-[#262522]/60">
-              Bonjour and welcome to the heart of my kitchen! I'm Isabella
+              Bonjour and welcome to the heart of my kitchen! I&apos;m Isabella
               Russo, the culinary enthusiast behind this haven of flavors, Cooks
               Delight. Join me on a gastronomic journey where each dish carries
               a story, and every recipe is a crafted symphony of taste.
@@ -51,13 +51,13 @@ const Hero = () => {
               </h1>
               <p className="font-light text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] text-[#333333]/80">
                 Born and raised in the vibrant culinary landscape of Italy, my
-                journey with food began in the heart of my family's kitchen.
-                Surrounded by the aroma of fresh herbs, the sizzle of pans, and
-                the laughter of loved ones, I developed a deep appreciation for
-                the art of cooking. My culinary education took me from the
-                historic streets of Rome to the bustling markets of Florence,
-                where I honed my skills and cultivated a love for the simplicity
-                and authenticity of Italian cuisine.
+                journey with food began in the heart of my family&apos;s
+                kitchen. Surrounded by the aroma of fresh herbs, the sizzle of
+                pans, and the laughter of loved ones, I developed a deep
+                appreciation for the art of cooking. My culinary education took
+                me from the historic streets of Rome to the bustling markets of
+                Florence, where I honed my skills and cultivated a love for the
+                simplicity and authenticity of Italian cuisine.
               </p>
               <p className="font-light mt-2 text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] text-[#333333]/80">
                 Driven by a relentless curiosity, I embarked on a global
@@ -67,10 +67,10 @@ const Hero = () => {
                 experience added a unique brushstroke to my culinary canvas.
               </p>
               <p className="font-light mt-2 text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] text-[#333333]/80">
-                Whether you're a seasoned home cook or just starting your
-                culinary adventure, I'm delighted to have you here. Let's stir,
-                simmer, and savor the beauty of creating something wonderful
-                together.
+                Whether you&apos;re a seasoned home cook or just starting your
+                culinary adventure, I&apos;m delighted to have you here.
+                Let&apos;s stir, simmer, and savor the beauty of creating
+                something wonderful together.
               </p>
               <p className="font-light mt-2 text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] text-[#333333]/80">
                 Warmest regards,

@@ -1,12 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import {
-  MdNavigateBefore,
-  MdNavigateNext,
-  MdRoomService,
-  MdTimer,
-} from "react-icons/md";
+import { MdRoomService, MdTimer } from "react-icons/md";
 
 interface RecipeProps {
   params: { id: string };

@@ -4,7 +4,6 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 import "swiper/css";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 interface recipe {
   id: number;
@@ -41,7 +40,6 @@ interface Ingredients {
 
 const Featured = () => {
   const [meals, setMeals] = useState<recipe[]>([]);
-  const [showFullDescription, setShowFullDescription] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

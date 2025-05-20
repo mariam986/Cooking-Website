@@ -13,8 +13,8 @@ const Hero = () => {
           </div>
           <div className="w-[100%] lg:w-[43%]  space-y-10 flex flex-col">
             <p className="font-normal text-[18px]   md:text-[19px] lg:text-[20px] xl:text-[21px] text-[#262522]/60">
-              Welcome to Cooks Delight's treasure trove of cooking wisdom!
-              Whether you're a seasoned chef or just starting your culinary
+              Welcome to Cooks Delight&apos;s treasure trove of cooking wisdom!
+              Whether you&apos;re a seasoned chef or just starting your culinary
               journey, our cooking tips are designed to elevate your skills,
               enhance your kitchen experience, and bring joy to your cooking
               adventures.
