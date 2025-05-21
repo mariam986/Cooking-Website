@@ -7,7 +7,9 @@ import { recipe } from "@/types/types";
 
 import { MdRoomService, MdTimer } from "react-icons/md";
 
-const RecipePage = async ({ params }: { params: { id: string } }) => {
+type Props = { params: { id: string } };
+
+const RecipePage = async ({ params }: Props) => {
   const id = params.id;
   const apiKey = "e1ed5835f345409480356553738a99df";
 
