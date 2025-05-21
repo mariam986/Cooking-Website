@@ -30,8 +30,12 @@ export interface recipe {
     original: string;
     image: string;
   }
-  export type PageProps = {
-    params: { [key: string]: string };
-    searchParams?: { [key: string]: string | string[] | undefined };
-  };
+  
+   export interface SimilarRecipe {
+    id: number;
+    title: string;
+    imageType: string;
+    readyInMinutes: number;
+    servings: number;
+  }
   

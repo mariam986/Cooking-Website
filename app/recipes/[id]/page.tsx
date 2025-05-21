@@ -2,19 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { InstructionStep } from "@/types/types";
 import { Ingredients } from "@/types/types";
-import { PageProps } from "@/types/types";
+import { SimilarRecipe } from "@/types/types";
 
 import { MdRoomService, MdTimer } from "react-icons/md";
 
-interface SimilarRecipe {
-  id: number;
-  title: string;
-  imageType: string;
-  readyInMinutes: number;
-  servings: number;
+interface RecipeProps {
+  params: { id: string };
 }
 
-const RecipePage = async ({ params }: PageProps) => {
+const RecipePage = async ({ params }: RecipeProps) => {
   const id = params.id;
   const apiKey = "e1ed5835f345409480356553738a99df";
   const response = await fetch(
@@ -25,7 +21,7 @@ const RecipePage = async ({ params }: PageProps) => {
   const similarRes = await fetch(
     `https://api.spoonacular.com/recipes/${id}/similar?number=2&apiKey=${apiKey}`
   );
-  const similar: SimilarRecipe[] = await similarRes.json();
+  const similar = await similarRes.json();
 
   return (
     <div className="w-full bg-[#F0EBE1] pt-40 pb-20">
@@ -114,7 +110,7 @@ const RecipePage = async ({ params }: PageProps) => {
             className="grid grid-cols-1  lg:grid-cols-2 gap-[2rem]   w-full   [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden  py-4"
             id="container"
           >
-            {similar.map((each) => {
+            {similar.map((each: SimilarRecipe) => {
               return (
                 <div
                   key={each.id}
