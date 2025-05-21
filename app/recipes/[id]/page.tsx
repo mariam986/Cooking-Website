@@ -6,11 +6,13 @@ import { SimilarRecipe } from "@/types/types";
 
 import { MdRoomService, MdTimer } from "react-icons/md";
 
-interface RecipeProps {
-  params: { id: string };
+interface PageProps {
+  params: {
+    id: string;
+  };
 }
 
-const RecipePage = async ({ params }: RecipeProps) => {
+const RecipePage = async ({ params }: PageProps) => {
   const id = params.id;
   const apiKey = "e1ed5835f345409480356553738a99df";
   const response = await fetch(
