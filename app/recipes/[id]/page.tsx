@@ -3,21 +3,38 @@ import Link from "next/link";
 import { InstructionStep } from "@/types/types";
 import { Ingredients } from "@/types/types";
 import { SimilarRecipe } from "@/types/types";
+import { recipe } from "@/types/types";
 
 import { MdRoomService, MdTimer } from "react-icons/md";
 
 const RecipePage = async ({ params }: { params: { id: string } }) => {
   const id = params.id;
   const apiKey = "e1ed5835f345409480356553738a99df";
-  const response = await fetch(
-    `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`
-  );
-  const recipe = await response.json();
 
-  const similarRes = await fetch(
-    `https://api.spoonacular.com/recipes/${id}/similar?number=2&apiKey=${apiKey}`
-  );
-  const similar = await similarRes.json();
+  let recipe: recipe | null = null;
+  let similar: SimilarRecipe[] = [];
+
+  try {
+    const response = await fetch(
+      `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`
+    );
+    recipe = await response.json();
+
+    const similarRes = await fetch(
+      `https://api.spoonacular.com/recipes/${id}/similar?number=2&apiKey=${apiKey}`
+    );
+    similar = await similarRes.json();
+  } catch (error) {
+    console.log(error);
+  }
+
+  if (!recipe) {
+    return (
+      <div className="w-full pt-40 pb-20 text-center text-red-600 font-semibold">
+        Failed to load recipe.
+      </div>
+    );
+  }
 
   return (
     <div className="w-full bg-[#F0EBE1] pt-40 pb-20">
