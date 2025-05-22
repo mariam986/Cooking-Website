@@ -13,7 +13,17 @@ const RecipePage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const response = await fetch(
     `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`
   );
+
+  if (!response.ok) {
+    console.error(
+      "Failed to fetch recipe:",
+      response.status,
+      response.statusText
+    );
+    return <div>Error loading recipe. Please try again later.</div>;
+  }
   const recipe = await response.json();
+  console.log(recipe);
 
   const similarRes = await fetch(
     `https://api.spoonacular.com/recipes/${id}/similar?number=2&apiKey=${apiKey}`

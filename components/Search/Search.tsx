@@ -7,6 +7,7 @@ const Search = () => {
   const [showDropDown, setShowDropDown] = useState(false);
   const [result, setResult] = useState<{ id: number; title: string }[]>([]);
   const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,6 +15,7 @@ const Search = () => {
         setResult([]);
         return;
       }
+      setLoading(true);
 
       const apiKey = "e1ed5835f345409480356553738a99df";
       const res = await fetch(
@@ -21,6 +23,7 @@ const Search = () => {
       );
       const data = await res.json();
       setResult(data);
+      setLoading(false);
     };
 
     const timeout = setTimeout(fetchData, 300);
@@ -50,23 +53,34 @@ const Search = () => {
           />
         </form>
 
-        {showDropDown && result.length > 0 && (
-          <ul className="absolute z-10 bg-transparent border mt-5 w-[90%]  rounded-[12px] shadow">
-            {result.map((item) => (
-              <li key={item.id}>
-                <Link
-                  href={`/recipes/${item.id}`}
-                  onClick={() => {
-                    setQuery(item.title);
-                    setShowDropDown(false);
-                  }}
-                  className="block px-4 py-2 hover:bg-[#F29C33] hover:text-white cursor-pointer"
-                >
-                  {item.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        {loading ? (
+          <div className=" mt-40 flex flex-col justify-center items-center  ">
+            <div className="relative w-20 h-20 lg:w-40 lg:h-40 ">
+              <div className="w-full h-full border-4 border-transparent rounded-full"></div>
+              <div className="absolute top-0 left-0 w-full h-full border-4 border-transparent border-t-[#F29C33] rounded-full animate-spin"></div>
+            </div>
+          </div>
+        ) : (
+          <div>
+            {showDropDown && result.length > 0 && (
+              <ul className="absolute z-10 bg-transparent border mt-5 w-[90%]  rounded-[12px] shadow">
+                {result.map((item) => (
+                  <li key={item.id}>
+                    <Link
+                      href={`/recipes/${item.id}`}
+                      onClick={() => {
+                        setQuery(item.title);
+                        setShowDropDown(false);
+                      }}
+                      className="block px-4 py-2 hover:bg-[#F29C33] hover:text-white cursor-pointer"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}{" "}
+          </div>
         )}
       </div>
     </div>
