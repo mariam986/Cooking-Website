@@ -53,7 +53,7 @@ const Search = () => {
         {showDropDown && result.length > 0 && (
           <ul className="absolute z-10 bg-transparent border mt-5 w-[90%]  rounded-[12px] shadow">
             {result.map((item) => (
-              <Link href={`/recipes/${item.id}`}>
+              <Link href={`/recipes/${item.id}`} key={item.id}>
                 <li
                   className="block px-4 py-2 hover:bg-[#F29C33] hover:text-[#ffff] cursor-pointer"
                   onMouseDown={() => {
