@@ -57,7 +57,8 @@ const Search = () => {
                 <li
                   className="block px-4 py-2 hover:bg-[#F29C33] hover:text-[#ffff] cursor-pointer"
                   onMouseDown={() => {
-                    setQuery(item.title), setShowDropDown(false);
+                    setQuery(item.title);
+                    setShowDropDown(false);
                   }}
                 >
                   {item.title}
