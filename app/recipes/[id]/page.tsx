@@ -114,7 +114,7 @@ const RecipePage = async ({ params }: { params: Promise<{ id: string }> }) => {
                   className=" flex-shrink-0 flex flex-col shadow-xl border-[#262522]/20  border rounded-[14px]   w-[240px] lg:w-[620px]"
                 >
                   <Image
-                    src={`https://spoonacular.com/recipeImages/${id}-312x231.${each.imageType}`}
+                    src={`https://spoonacular.com/recipeImages/${each.id}-312x231.${each.imageType}`}
                     alt={each.title}
                     width={600}
                     height={200}

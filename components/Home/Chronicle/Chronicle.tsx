@@ -44,7 +44,7 @@ const Chronicle = () => {
           </div>
           <div className="w-[100%] lg:w-[38%]">
             <Image
-              src="/images/Recipecard3.png"
+              src="/images/recipecard3.png"
               alt="image"
               width={100}
               height={100}

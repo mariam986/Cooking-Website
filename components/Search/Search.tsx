@@ -1,11 +1,13 @@
 "use client";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Search = () => {
   const [showDropDown, setShowDropDown] = useState(false);
   const [result, setResult] = useState<{ id: number; title: string }[]>([]);
   const [query, setQuery] = useState("");
+
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,6 +43,11 @@ const Search = () => {
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 e.preventDefault();
+                const selected = result[0];
+                setQuery(selected.title);
+                setShowDropDown(false);
+
+                router.push(`/recipes/${selected.id}`);
               }
             }}
             onBlur={() => setTimeout(() => setShowDropDown(false), 300)}
@@ -52,11 +59,15 @@ const Search = () => {
         {showDropDown && result.length > 0 && (
           <ul className="absolute z-10 bg-transparent border mt-5 w-[90%]  rounded-[12px] shadow">
             {result.map((item) => (
-              <Link href={`/recipes/${item.id}`} key={item.id}>
-                <li className="block px-4 py-2 hover:bg-[#F29C33] hover:text-[#ffff] cursor-pointer">
-                  {item.title}
-                </li>
-              </Link>
+              <li
+                className="block px-4 py-2 hover:bg-[#F29C33] hover:text-[#ffff] cursor-pointer"
+                onMouseDown={() => {
+                  setQuery(item.title), setShowDropDown(false);
+                  router.push(`/recipes/${item.id}`);
+                }}
+              >
+                {item.title}
+              </li>
             ))}
           </ul>
         )}
