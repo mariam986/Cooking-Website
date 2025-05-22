@@ -3,7 +3,6 @@ import Link from "next/link";
 import { InstructionStep } from "@/types/types";
 import { Ingredients } from "@/types/types";
 import { SimilarRecipe } from "@/types/types";
-import { recipe } from "@/types/types";
 
 import { MdRoomService, MdTimer } from "react-icons/md";
 
