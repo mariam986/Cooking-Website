@@ -63,7 +63,7 @@ const Search = () => {
         ) : (
           <div>
             {showDropDown && result.length > 0 && (
-              <ul className="absolute z-10 bg-transparent border mt-5 w-[90%]  rounded-[12px] shadow">
+              <ul className="absolute z-10 bg-transparent border mt-5 w-[90%]  rounded shadow">
                 {result.map((item) => (
                   <li key={item.id}>
                     <Link

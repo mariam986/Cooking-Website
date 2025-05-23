@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { CgClose } from "react-icons/cg";
 import { CiSearch } from "react-icons/ci";
-import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaHeart, FaInstagram, FaYoutube } from "react-icons/fa";
 
 type props = {
   closeNav: () => void;
@@ -80,6 +80,9 @@ const Mobilenav = ({ closeNav, isOpen }: props) => {
           <button className="px-[24px] w-full py-[12px] font-medium text-[14px] rounded-[24px] bg-[#FFFBF2]/16 text-[#F0EBE1] ">
             SUBSCRIBE
           </button>
+          <Link href="/Favorites">
+            <FaHeart className="size-7 text-[#ffff]" />
+          </Link>
         </div>
         <div className="flex space-x-6 mt-20 items-center justify-center">
           <FaFacebook className="size-8 text-[#ffff]" />

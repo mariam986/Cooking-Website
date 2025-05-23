@@ -32,6 +32,13 @@ const Favorites = () => {
     }
   }, []);
 
+  const removeFavorites = (id: string) => {
+    const updated = favorites.filter((favid) => favid !== id);
+    setFavorites(updated);
+    localStorage.setItem("favorites", JSON.stringify(updated));
+    setRecipe((prev) => prev.filter((recipe) => recipe.id.toString() !== id));
+  };
+
   if (recipe.length === 0) {
     return (
       <div className="w-full bg-[#F0EBE1] pt-60 pb-20 text-center font-bold text-[26px] md:text-[30px] lg:text-[34px] xl:text-[40px] text-[#262522]">
@@ -78,6 +85,12 @@ const Favorites = () => {
                   >
                     VIEW RECIPE
                   </Link>
+                  <button
+                    onClick={() => removeFavorites(recipe.id.toString())}
+                    className=" px-[24px] py-[12px] bg-[#EE6352] text-white rounded-[24px] font-medium text-[14px] md:text-[15px] lg:text-[15px] xl:text-[16px] mb-3"
+                  >
+                    Remove from Favorites
+                  </button>
                 </div>
               </div>
             </div>
