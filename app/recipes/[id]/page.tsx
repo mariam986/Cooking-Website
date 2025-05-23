@@ -5,6 +5,7 @@ import { Ingredients } from "@/types/types";
 import { SimilarRecipe } from "@/types/types";
 
 import { MdRoomService, MdTimer } from "react-icons/md";
+import FavoriteButton from "@/components/favoriteButton";
 
 const RecipePage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
@@ -46,6 +47,7 @@ const RecipePage = async ({ params }: { params: Promise<{ id: string }> }) => {
             elevate your dining experience our Citrus Infusion Delight:{" "}
             {recipe.title}.
           </p>
+          <FavoriteButton recipeId={id} />
           <div className="flex  items-center justify-center mt-10 space-x-10 ">
             <div className="flex space-x-2 items-center justify-center ">
               <MdTimer className="size-6 " />

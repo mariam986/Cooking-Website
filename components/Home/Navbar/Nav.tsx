@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { CiSearch } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 type props = {
@@ -74,6 +75,9 @@ const Nav = ({ showNav }: props) => {
               <button className="px-[24px] py-[12px] font-medium text-[14px] rounded-[24px] bg-[#262522] text-[#F0EBE1] ">
                 SUBSCRIBE
               </button>
+              <Link href="/Favorites">
+                <FaHeart className="size-7" />
+              </Link>
             </div>
             <div
               onClick={showNav}
