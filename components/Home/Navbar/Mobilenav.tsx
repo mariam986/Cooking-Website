@@ -80,7 +80,7 @@ const Mobilenav = ({ closeNav, isOpen }: props) => {
           <button className="px-[24px] w-full py-[12px] font-medium text-[14px] rounded-[24px] bg-[#FFFBF2]/16 text-[#F0EBE1] ">
             SUBSCRIBE
           </button>
-          <Link href="/Favorites">
+          <Link href="/Favorites" onClick={closeNav}>
             <FaHeart className="size-7 text-[#ffff]" />
           </Link>
         </div>
